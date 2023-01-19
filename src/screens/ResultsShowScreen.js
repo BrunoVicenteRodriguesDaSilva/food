@@ -24,13 +24,23 @@ const ResultsShowScreen = ({ navigation }) => {
   return (
     <View style={styles.Container}>
       <Text style={styles.Title}>{result.name}</Text>
-      <FlatList
-        data={result.photos}
-        keyExtractor={(photo) => photo}
-        renderItem={({ item }) => {
-          return <Image style={styles.Image} source={{ uri: item }} />;
-        }}
-      />
+      <View style={styles.Info}>
+        <FlatList
+          data={result.photos}
+          keyExtractor={(photo) => photo}
+          renderItem={({ item }) => {
+            return <Image style={styles.Image} source={{ uri: item }} />;
+          }}
+        />
+        <Text style={styles.Address}>{result.location.address1}</Text>
+        {result.location.address2 ? (
+          <Text style={styles.Address}>{result.location.address2}</Text>
+        ) : null}
+        {result.location.address3 ? (
+          <Text style={styles.Address}>{result.location.address3}</Text>
+        ) : null}
+        <Text style={styles.Phone}>{result.phone}</Text>
+      </View>
     </View>
   );
 };
@@ -40,8 +50,12 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     flex: 1,
   },
+  Info: {
+    display: "flex",
+    alignItems: "center",
+  },
   Title: {
-    marginLeft: 10,
+    marginLeft: 15,
     marginBottom: 25,
     fontSize: 25,
     fontWeight: "bold",
@@ -51,7 +65,14 @@ const styles = StyleSheet.create({
     height: 200,
     borderRadius: 4,
     marginBottom: 10,
-    alignSelf: "center",
+  },
+  Address: {
+    marginTop: 5,
+    color: "#adadad",
+    fontWeight: "bold",
+  },
+  Phone: {
+    color: "#adadad",
   },
 });
 
