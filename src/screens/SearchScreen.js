@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, ScrollView } from "react-native";
 import SearchBar from "../Components/SearchBar";
 import useResults from "../Hooks/useResults";
 import ResultsList from "../Components/ResultsList";
@@ -24,14 +24,21 @@ const SearchScreen = () => {
         }}
       />
       {errorMsg ? <Text>{errorMsg}</Text> : null}
-      <Text>We have found {results.length} results</Text>
-      <ResultsList results={filterResultsByPrice("$")} title="Cost Effective" />
-      <ResultsList results={filterResultsByPrice("$$")} title="Bit Pricier" />
-      <ResultsList results={filterResultsByPrice("$$$")} title="Big Spender" />
-      <ResultsList
-        results={filterResultsByPrice("$$$$")}
-        title="Ultimate Spender"
-      />
+      <ScrollView>
+        <ResultsList
+          results={filterResultsByPrice("$")}
+          title="Cost Effective"
+        />
+        <ResultsList results={filterResultsByPrice("$$")} title="Bit Pricier" />
+        <ResultsList
+          results={filterResultsByPrice("$$$")}
+          title="Big Spender"
+        />
+        <ResultsList
+          results={filterResultsByPrice("$$$$")}
+          title="Ultimate Spender"
+        />
+      </ScrollView>
     </View>
   );
 };
@@ -39,6 +46,7 @@ const SearchScreen = () => {
 const styles = StyleSheet.create({
   DIV: {
     backgroundColor: "white",
+    flex: 1,
   },
 });
 

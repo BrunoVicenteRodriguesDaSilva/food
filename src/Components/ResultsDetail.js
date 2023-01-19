@@ -23,13 +23,14 @@ const ResultsDetail = ({ result }) => {
 
 const styles = StyleSheet.create({
   Container: {
-    marginLeft: 10,
+    marginLeft: 20,
     width: 250,
   },
   Image: {
     width: 250,
     height: 150,
     borderRadius: 4,
+    marginBottom: 5,
   },
   Name: {
     fontWeight: "bold",
@@ -37,6 +38,7 @@ const styles = StyleSheet.create({
   Rating: {
     fontWeight: "bold",
     fontSize: 12,
+    marginBottom: 4,
   },
   Address: {
     fontSize: 12,
