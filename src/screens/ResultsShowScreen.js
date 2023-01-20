@@ -19,8 +19,6 @@ const ResultsShowScreen = ({ navigation }) => {
     return null;
   }
 
-  console.log(result.location);
-
   return (
     <View style={styles.Container}>
       <Text style={styles.Title}>{result.name}</Text>
