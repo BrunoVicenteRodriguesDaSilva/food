@@ -6,8 +6,8 @@ import {
   FlatList,
   TouchableOpacity,
 } from "react-native";
-import { withNavigation } from "react-navigation";
 import ResultsDetail from "./ResultsDetail";
+import { withNavigation } from "@react-navigation/compat";
 
 const ResultsList = ({ title, results, navigation }) => {
   if (!results.length) {
